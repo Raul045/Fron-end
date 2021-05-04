@@ -1,0 +1,108 @@
+<app-menu></app-menu>
+
+<div class="container-fluid">
+    <div class="row my-4">
+        <div class="col-3 border-end border-dark">
+            <div class="sensors_area row justify-content-evenly text-center bg m-1 p-2">
+                <div class="col"> <!-- REPORTE DE TEMPERATURA-->
+                    <div class="row"> <!-- DATOS-->
+                        <div class="col"></div>
+                        <div class="col">
+                            <span class="ml-4 fs-1 fw-bold text-light">MÁX</span>
+                        </div>
+                        <div class="col">
+                            <span class="ml-4 fs-1 fw-bold text-light">MÍN</span>
+                        </div>
+                    </div>
+                    <div class="row"> <!-- TEMPERATURA-->
+                        <div class="col"> <!-- IMAGENES -->
+                            <img src="assets\SVG\temperatura.svg" alt="termo" class="image">  
+                        </div>
+                        <div class="col"> <!-- DATO MÁX-->
+                            <span class="ml-4 fs-1 fw-bold text-light">{{tempMax}}</span>
+                        </div>
+                        <div class="col"> <!-- DATO MÍN-->
+                            <span class="ml-4 fs-1 fw-bold text-light">{{tempMin}}</span>
+                        </div>
+                    </div>
+                    <div class="row"> <!-- HUMEDAD -->
+                        <div class="col">
+                            <img src="assets\SVG\humidity.svg" alt="termo" class="image">  
+                        </div>
+                        <div class="col">
+                            <span class="ml-4 fs-1 fw-light text-light">{{humMax}}</span>
+                        </div>
+                        <div class="col">
+                            <span class="ml-4 fs-1 fw-light text-light">{{humMin}}</span>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <hr class="bg-light py-1 my-4">
+            <div class="sensors_area row justify-content-between text-center bg m-1 p-2">
+                <div class="col"> <!-- REPORTE DE PRESENCIAS-->
+                    <div class="row">
+                        <div class="col-1 pt-5"> <!-- IMAGEN-->
+                            <img src="assets\SVG\sensor_movimiento.svg" alt="movimiento" class="image">
+                        </div>
+                        <div class="col"> <!-- DATO-->
+                            <span class="ml-4 fs-1 fw-bold text-light">Presencias Registradas</span>
+                            <br>
+                            <span class="ml-4 fs-1 fw-light text-light">{{presenceCounter}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light py-1 my-4">
+            <div class="row text-center">
+                <div class="col"> <!-- BOTON RECARGAR CONSULTAS -->
+                    <button class="btn btn-dark fs-4 fw-bold rounded-pill" (click)=animateRefresh()>Refrescar consultas
+                    <img src="assets\SVG\redo-alt-solid.svg" class="btn-reload" alt="reload" style="width:20%;"
+                    [@refresh]="clickRefresh ?  'hover' : 'click'"></button>
+                    <small class="badge bg-light text-dark rounded-pill">Ultima actualización: {{now}}</small>
+                </div>
+            </div>
+            <!-- <hr class="bg-light py-1 my-4"> <!- TIEMPO ACTIVO ->
+            <div class="sensors_area row justify-content-evenly text-center bg m-1 p-2">
+                <div class="col">
+                    <span class="ml-4 fs-1 fw-bold text-light">Tiempo Actívo</span>
+                    <br>
+                    <span class="ml-4 fs-1 fw-light text-light">7:44 hrs</span>
+                </div>
+            </div> -->
+        </div>
+        <div class="col">
+            <div class="cam-area text-light text-center">
+                <img src="assets\images\Backgrounds\fondo_cochera_web.jpg" class="card-img-top border border-5 rounded-3" alt="Locacion" style="width: 72%;">
+                <!-- <input type="text" [(ngModel)]="value" placeholder="temperatura">
+                <button class="btn btn-primary" (click)="temp()"></button>
+                <input type="text" [(ngModel)]="value" placeholder="humedad">
+                <button class="btn btn-primary" (click)="hum()"></button> -->
+                <!-- <input type="text" [(ngModel)]="value" placeholder="movimiento">
+                <button class="btn btn-primary" (click)="pir()"></button> -->
+                <!-- <input type="text" [(ngModel)]="value" placeholder="distancia">
+                <button class="btn btn-primary" (click)="ultra()"></button> -->
+            </div>
+            <div class="sensors_area row justify-content-evenly text-center bg m-1 p-2">
+                <div class="col border-start border-end border-light">
+                    <img src="assets\SVG\temperatura.svg" alt="termo" class="image">  
+                    <span class="ml-4 fs-1 fw-bold text-light">{{tempSensor}}</span>
+                    <br>
+                    <img src="assets\SVG\humidity.svg" alt="termo" class="image">  
+                    <span class="ml-4 fs-1 fw-light text-light">{{humSensor}}</span>
+                </div>
+                <div class="col border-end border-light">
+                    <div class="alert" [@motionDetected]="motionDetected ? 'motion' : 'motionless'">
+                        <img src="assets\SVG\sensor_movimiento.svg" alt="movimiento" class="image"> <br>
+                        <span class="ml-4 fs-1 fw-bold text-light">{{pirSensor}}</span>
+                    </div>
+                </div>
+                <div class="col border-end border-light">
+                    <img src="assets\SVG\sensor_proximidad_cinta_metrica.svg" alt="movimiento" class="image"> <br>
+                    <span class="ml-4 fs-1 fw-bold text-light">{{ultraSensor}} cms</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

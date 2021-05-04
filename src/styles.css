@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url("assets\images\Backgrounds\fondo_gris_web2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.cursor { 
+    cursor: pointer;
+    filter: saturate(0);
+}
+.cursor:hover{
+    filter: saturate(1);
+    filter: brightness(1.05);
+ }
+
+ .image {
+     background-position: center;
+ }
+/* .cursor:hover{ filter: sepia(.2)} */

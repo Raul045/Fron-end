@@ -1,0 +1,22 @@
+.cam-area {
+    height: 67vh;
+}
+
+.sensors_area {
+    background: #20202050;
+}
+
+.image {
+    --s : 50px;
+    height: var(--s);
+}
+.alert { 
+    padding: 1%;
+    background-color: rgba(223, 43, 43, 0);}
+.btn-reload {
+    transition: 0.6s;
+}
+.btn-reload:hover {
+    transform: scale(.95) rotate(10deg);
+    cursor: pointer;
+}
